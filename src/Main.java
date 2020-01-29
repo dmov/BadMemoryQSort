@@ -11,19 +11,19 @@ public class Main {
             return list;
         }
 
-        int pivot = list.get(list.size() / 2);
+        final int pivot = list.get(list.size() / 2);
 
-        List<Integer> leftList = list.stream()
-                                     .filter(e -> e < pivot)
-                                     .collect(toList());
+        final List<Integer> leftList = list.stream()
+                                           .filter(e -> e < pivot)
+                                           .collect(toList());
 
-        List<Integer> middleList = list.stream()
-                                       .filter(e -> e == pivot)
-                                       .collect(toList());
+        final List<Integer> middleList = list.stream()
+                                             .filter(e -> e == pivot)
+                                             .collect(toList());
 
-        List<Integer> rightList = list.stream()
-                                      .filter(e -> e > pivot)
-                                      .collect(toList());
+        final List<Integer> rightList = list.stream()
+                                            .filter(e -> e > pivot)
+                                            .collect(toList());
 
         return Stream.of(quickSort(leftList), middleList, quickSort(rightList))
                      .flatMap(Collection::stream)
@@ -31,7 +31,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        List<Integer> unsortedList = Arrays.asList(5, 6, 3, 1, 2, 4, -1, 7, 5, -8, 44, 3, 25, 4, 5, 1, 3, 6, 1, 5);
+        final List<Integer> unsortedList = Arrays.asList(5, 6, 3, 1, 2, 4, -1, 7, 5, -8, 44, 3, 25, 4, 5, 1, 3, 6, -5);
         System.out.println(unsortedList);
 
         System.out.println(quickSort(unsortedList));
